@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="js.js">
+</head>
+<body>
+
+
+    <form method="post" action="main.php" id="formetudiant">
+
+    <label  >Nom</label>
+    <input type="text" name="nom" id="nom" placeholder="nom">
+    <label>prenom</label>
+    <input type="text" name="prenom" id="prenom" placeholder="prenom">
+    <label  >age</label>
+    <input type="text" name ="age" id ="age" placeholder="age">
+
+    <button type="submit">AddEtudiant</button>
+
+    </form>
+
+    <ul id="listEtuidant">
+
+    </ul>
+
+    <script>
+
+function addEtudiant()
+{
+
+    const dataEtudaint = [];
+
+
+let listEtuidant = document.getElementById("listEtuidant");
+let inputNom = document.getElementById("nom");
+let inputPrenom = document.getElementById("prenom");
+let inputAge = document.getElementById("age");
+    validateInput();
+
+let li = document.createElement("li");
+
+let spane = document.createElement("span");
+spane.class = "span";
+spane.innerText = "The name is :" + inputNom.value +   " the prenom is :"+ inputPrenom.value +   " the age is :"+ inputAge.value ;
+
+li.appendChild(spane);
+
+let buttonsupprimer = document.createElement("button");
+buttonsupprimer.type = "button";
+buttonsupprimer.innerText = "deleteEtudiant";
+buttonsupprimer.onclick = function ()
+{
+suprimerEtudian(this);
+};
+li.appendChild(buttonsupprimer);
+listEtuidant.appendChild(li);
+
+
+}
+
+function addEtudiant()
+{
+
+
+
+
+}
+
+function suprimerEtudian(item)
+{
+item.parentElement.remove();
+}
+
+function validateInput(inputNom)
+{
+
+    if(inputNom === "" || inputPrenom === " " || inputAge === "" )
+   {
+           alert("Please you missed informations");
+   } 
+
+
+
+}
+    </script>
+    
+</body>
+
+</html>
